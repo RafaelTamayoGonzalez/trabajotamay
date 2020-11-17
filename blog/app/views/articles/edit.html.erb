@@ -1,0 +1,25 @@
+<%= form_with(model:@article, local:true) do |form|%>
+  <% if @article.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@articles.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @articles.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :status %><br>
+    <%= form.text_area :status %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', :action => :index %>}
